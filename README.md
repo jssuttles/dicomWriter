@@ -8,13 +8,13 @@ Not at all polished.
 
 ```javascript
 var dicomElements = dicomParser.parseDicom(someBuffer);
-var changedDataSet = new dicomWriter.DataSet(dicomElements.byteArrayParser, dicomElements.byteArray, dicomElements.elements);
+var changedWriterDataSet = new dicomWriter.DataSet(dicomElements.byteArrayParser, dicomElements.byteArray, dicomElements.elements);
 
-changedDataSet.changeString('x00100010', 'Bob');
+changedWriterDataSet.changeString('x00100010', 'Bob');
 
-changedDataSet.finishedChanges();
+changedWriterDataSet.finishedChanges();
 
-var changedDataSet = new dicomParser.DataSet(changedDataSet.byteArrayParser, changedDataSet.byteArray, changedDataSet.elements);
+var changedParserDataSet = new dicomParser.DataSet(changedWriterDataSet.byteArrayParser, changedWriterDataSet.byteArray, changedWriterDataSet.elements);
 
-changedDataSet.string('x00100010'); // should be Bob
+changedParserDataSet.string('x00100010'); // should be Bob
 ```
