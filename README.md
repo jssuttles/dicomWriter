@@ -18,3 +18,7 @@ var changedParserDataSet = new dicomParser.DataSet(changedWriterDataSet.byteArra
 
 changedParserDataSet.string('x00100010'); // should be Bob
 ```
+
+Due to my inexperience with git, I changed some stuff with dicomParser that was thought to be unnecessary to a general pull request. So, I reverted commit c55297fd428aaf4f68067ed2cadee87c576e3765.
+
+That is currently necessary for this to work.
